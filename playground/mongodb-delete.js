@@ -21,7 +21,7 @@ MongoClient.connect(url, (err, db) => {
     });*/
 
     // findOneAndDelete
-    db.collection('Todos').findOneAndDelete({_id: ObjectId("58d055f34a2a4e498ddac44b")}).then((result) => {
+    db.collection('Todos').findOneAndDelete({_id: ObjectId("58d036c803141e3e72166c12")}).then((result) => {
         console.log(result);
     }, (err) => {
         console.log('Unable to fetch todos to delete', err);

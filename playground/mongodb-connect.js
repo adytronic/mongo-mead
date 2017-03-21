@@ -6,7 +6,7 @@ MongoClient.connect(url, (err, db) => {
     console.log('Successfully connected to Mongo server');
 
     db.collection('Todos').insertOne({
-        text: "Eat lunch",
+        text: "Walk the dog",
         completed: false
     }, (err, result) => {
         if(err){return console.log("Unable to connect ", err)}

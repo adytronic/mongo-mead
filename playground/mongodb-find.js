@@ -14,6 +14,14 @@ MongoClient.connect(url, (err, db) => {
         console.log('Unable to fetch todos', err);
     });*/
 
+    // encuentra todos los users
+    db.collection('Users').find().toArray().then((docs) => {
+        console.log('Users:');
+        console.log(docs);
+    }, (err) => {
+        console.log('Unable to fetch users', err);
+    });
+
     // encuentra con query
     /*db.collection('Todos').find({_id : ObjectId("58d0389880051c3f10cd3b60")}).toArray().then((docs) => {
         console.log('Todos:');
@@ -23,11 +31,11 @@ MongoClient.connect(url, (err, db) => {
     });*/
 
     // count 
-    db.collection('Todos').find().count().then((count) => {
+    /*db.collection('Todos').find().count().then((count) => {
         console.log(`Count: ${count}`);
     }, (err) => {
         console.log('Unable to fetch todos', err);
-    });
+    });*/
 
     //db.close();
 });
