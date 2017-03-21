@@ -1,9 +1,6 @@
-const mongoose = require('mongoose');
-const models = require('../models/models');
-
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TodoApp');
-
+var {mongoose} = require('./db/mongoose');
+var {Todo} = require('./models/todoModel');
+var {User} = require('./models/userModel');
 
 // Todo new objects
 /*var newTodo = new models.Todo({
@@ -16,11 +13,11 @@ newTodo.save().then((doc) => {
 });*/
 
 // User new objects
-var newUser = new models.User({
+/*var newUser = new models.User({
     email: 'ajmangas@ajm.com'
 });
 newUser.save().then((doc) => {
     console.log(doc)
 }, (e) => {
     console.log(`Unable to save user. ${e}`);
-});
+});*/
