@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+var {ObjectID} = require('mongodb');
 var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todoModel');
 var {User} = require('./models/userModel');
@@ -9,6 +10,9 @@ var app = express();
 
 app.use(bodyParser.json());
 
+
+// == /todos
+// =============
 app.post('/todos', (req, res) => {
     var newTodo = new Todo({
         text: req.body.text
@@ -26,7 +30,29 @@ app.get('/todos', (req, res) => {
     }, (e) => {
         res.status(400).send(e);
     });
+});
+
+
+// == /todos/:id
+// =============
+app.get('/todos/:id', (req, res) => {
+    var id = req.params.id;
+    if(!ObjectID.isValid(id)) {
+        res.status(404).send();
+    }
+    
+    Todo.findById(id).then((todo) => {
+        if(!todo) {return res.status(404).send()}
+        res.send({todo});
+    }).catch((e) => {
+        res.send('no hay ese id2');
+        res.status(400).send();
+    });
 })
+
+
+
+
 
 var port = process.env.PORT || 3000;
 
