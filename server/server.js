@@ -34,6 +34,7 @@ app.listen(port, () => {
     console.log('Listening on port ' + port);
 });
 
+module.exports = {app};
 // Todo new objects
 /*var newTodo = new models.Todo({
     text: 'Feed Sanson'
