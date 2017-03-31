@@ -23,7 +23,7 @@ MongoClient.connect(url, (err, db) => {
     });
 
     // encuentra con query
-    /*db.collection('Todos').find({_id : ObjectId("58d0389880051c3f10cd3b60")}).toArray().then((docs) => {
+    /*db.collection('Todos').find({_id : ObjectId("58d202b3b56697456505e9fa")}).toArray().then((docs) => {
         console.log('Todos:');
         console.log(docs);
     }, (err) => {

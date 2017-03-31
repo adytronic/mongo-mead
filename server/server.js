@@ -38,14 +38,14 @@ app.get('/todos', (req, res) => {
 app.get('/todos/:id', (req, res) => {
     var id = req.params.id;
     if(!ObjectID.isValid(id)) {
-        res.status(404).send();
+        console.log('Not a valid ID');
+        return res.status(404).send();
     }
     
     Todo.findById(id).then((todo) => {
         if(!todo) {return res.status(404).send()}
         res.send({todo});
     }).catch((e) => {
-        res.send('no hay ese id2');
         res.status(400).send();
     });
 })
@@ -61,6 +61,9 @@ app.listen(port, () => {
 });
 
 module.exports = {app};
+
+
+
 // Todo new objects
 /*var newTodo = new models.Todo({
     text: 'Feed Sanson'
