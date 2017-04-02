@@ -55,7 +55,10 @@ app.get('/todos/:id', (req, res) => {
 
 
 var port = process.env.PORT || 3000;
-
+/*if(process.env.PORT) {
+    process.env.MONGODB_URI = "mongodb://ajm_administrator:test@ds147510.mlab.com:47510/todo_app_mead";
+}
+*/
 app.listen(port, () => {
     console.log('Listening on port ' + port);
 });
